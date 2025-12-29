@@ -1,6 +1,5 @@
 import { getPostBySlug } from '../../../lib/posts';
-import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
 type Props = { params: { slug: string } };
@@ -24,14 +23,13 @@ export default async function PostPage({ params }: Props) {
   const { slug } = params;
   try {
     const post = getPostBySlug(slug);
-    const mdxSource = await serialize(post.content);
 
     return (
       <article>
         <h1 className="text-2xl font-bold">{post.meta.title}</h1>
         <p className="text-sm text-gray-500">{post.meta.date}</p>
         <div className="prose mt-6">
-          <MDXRemote {...mdxSource} />
+          <MDXRemote source={post.content} />
         </div>
       </article>
     );
