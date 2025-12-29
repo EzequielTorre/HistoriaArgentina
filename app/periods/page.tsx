@@ -7,20 +7,19 @@ export default function PeriodsPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Periodos</h1>
-      <p className="mb-6 text-gray-600">Explora artículos por periodos o temas.</p>
+      <p className="mb-6 text-gray-600 dark:text-gray-400">Explora artículos por periodos o temas.</p>
 
-      <ul className="space-y-2">
+      <div className="flex flex-wrap gap-3">
         {tags.map((t) => (
-          <li key={t}>
-            <Link
-              href={`/periods/${encodeURIComponent(t)}`}
-              className="text-blue-600 hover:underline"
-            >
-              {t}
-            </Link>
-          </li>
+          <Link
+            key={t}
+            href={`/periods/${encodeURIComponent(t)}`}
+            className="inline-flex items-center rounded-full border px-4 py-1 text-sm bg-white text-gray-700 hover:bg-gray-50 border-gray-200 shadow-sm dark:bg-gray-900 dark:text-gray-300 dark:border-gray-800"
+          >
+            {t}
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

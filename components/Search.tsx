@@ -34,29 +34,29 @@ export default function Search() {
   }, [query, posts]);
 
   return (
-    <div className="mb-6">
+    <div className="mb-6 relative">
       <input
         aria-label="Buscar artículos"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Buscar por título, resumen o etiqueta..."
-        className="w-full border rounded px-3 py-2 mb-3"
+        className="w-full border bg-white/90 placeholder-gray-400 rounded-full px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 transition dark:bg-gray-900/80 dark:text-gray-200"
       />
 
       {query && (
-        <div className="bg-white border rounded p-3">
+        <div className="absolute left-0 right-0 mt-2 bg-white rounded-lg shadow-lg overflow-hidden z-10 dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
           {results.length === 0 ? (
-            <p className="text-sm text-gray-500">No se encontraron resultados</p>
+            <p className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">No se encontraron resultados</p>
           ) : (
-            <ul className="space-y-2">
-              {results.map((r) => (
-                <li key={r.slug}>
-                  <Link href={`/posts/${r.slug}`} className="text-blue-600 hover:underline">
-                    {r.title}
+            <ul className="divide-y dark:divide-gray-800">
+              {results.slice(0, 8).map((r) => (
+                <li key={r.slug} className="px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <Link href={`/posts/${r.slug}`} className="block">
+                    <div className="text-sm font-medium text-gray-800 dark:text-gray-200">{r.title}</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                      {r.date} • {r.tags?.join(', ')}
+                    </div>
                   </Link>
-                  <p className="text-xs text-gray-500">
-                    {r.date} • {r.tags?.join(', ')}
-                  </p>
                 </li>
               ))}
             </ul>
