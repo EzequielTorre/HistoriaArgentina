@@ -8,8 +8,9 @@ export default function PostList({ posts }: { posts: PostMeta[] }) {
         <li key={p.slug} className="card p-5 border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
           <Link
             href={`/posts/${p.slug}`}
-            className="text-lg font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
+            className="inline-flex items-center gap-2 text-lg font-semibold text-indigo-600 dark:text-indigo-400 no-underline"
           >
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M5 4h14v2H5zm0 4h14v2H5zm0 4h10v2H5z"/></svg>
             {p.title}
           </Link>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">

@@ -42,7 +42,8 @@ export default async function Home() {
             {tags.map((t) => (
               <div key={t} className="relative">
                 <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-amber-400" />
-                <a href={`/periods/${encodeURIComponent(t)}`} className="inline-flex items-center rounded-full border px-4 py-1 text-sm bg-white text-gray-700 hover:bg-gray-50 border-gray-200 shadow-sm dark:bg-gray-900 dark:text-gray-300 dark:border-gray-800">
+                <a href={`/periods/${encodeURIComponent(t)}`} className="inline-flex items-center gap-2 rounded-full border px-4 py-1 text-sm bg-white text-gray-700 hover:bg-gray-50 border-gray-200 shadow-sm dark:bg-gray-900 dark:text-gray-300 dark:border-gray-800 no-underline">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M5 5h14v2H5zm0 4h10v2H5zm0 4h6v2H5z"/></svg>
                   {t}
                 </a>
               </div>
