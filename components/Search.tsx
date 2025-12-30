@@ -34,14 +34,17 @@ export default function Search() {
   }, [query, posts]);
 
   return (
-    <div className="mb-6 relative">
+    <div className="mb-6 relative max-w-xl mx-auto">
       <input
         aria-label="Buscar artículos"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Buscar por título, resumen o etiqueta..."
-        className="w-full border bg-white/90 placeholder-gray-400 rounded-full px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 transition dark:bg-gray-900/80 dark:text-gray-200"
+        className="w-full border bg-white/90 placeholder-gray-400 rounded-full pl-10 pr-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400 transition dark:bg-gray-900/80 dark:text-gray-200"
       />
+      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M10 4a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm8.32 13.9-3.17-3.17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+      </span>
 
       {query && (
         <div className="absolute left-0 right-0 mt-2 bg-white rounded-lg shadow-lg overflow-hidden z-10 dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
