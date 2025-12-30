@@ -10,6 +10,18 @@ export async function generateMetadata({ params }: Props) {
     return {
       title: post.meta.title,
       description: post.meta.summary || post.meta.title,
+      openGraph: {
+        title: post.meta.title,
+        description: post.meta.summary || post.meta.title,
+        url: `/posts/${post.slug}`,
+        type: 'article',
+        siteName: 'Historia Argentina',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.meta.title,
+        description: post.meta.summary || post.meta.title,
+      },
     };
   } catch (e) {
     return {
@@ -25,7 +37,7 @@ export default async function PostPage({ params }: Props) {
     const post = getPostBySlug(slug);
 
     return (
-      <article>
+      <article className="fade-in-up">
         <h1 className="text-2xl font-bold">{post.meta.title}</h1>
         <p className="text-sm text-gray-500">{post.meta.date}</p>
         <div className="prose mt-6">

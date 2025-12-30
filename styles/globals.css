@@ -6,6 +6,9 @@
 
 :root {
   --max-w: 72rem;
+  --sky-500: #0ea5e9;
+  --sky-700: #0369a1;
+  --gold: #d4af37;
 }
 
 html,
@@ -60,4 +63,42 @@ body {
 }
 .dark .prose a {
   color: #93c5fd;
+}
+.accent-gold { color: var(--gold); }
+.bg-accent-gold { background-color: var(--gold); }
+.border-accent-gold { border-color: var(--gold); }
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 400ms ease-out both; }
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), rgba(212,175,55,0.2));
+}
+.timeline-item {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0.75rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.25);
 }
