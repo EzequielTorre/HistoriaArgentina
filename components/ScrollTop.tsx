@@ -24,11 +24,10 @@ export default function ScrollTop() {
     <button
       aria-label="Volver arriba"
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 rounded-full shadow-lg bg-amber-400 text-gray-900 hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500 p-3"
+      className="btn btn-warning rounded-circle shadow position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center"
+      style={{ width: '50px', height: '50px', zIndex: 1000 }}
     >
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M12 5l-7 7h4v7h6v-7h4l-7-7z" />
-      </svg>
+      <i className="bi bi-arrow-up fs-4"></i>
     </button>
   );
 }

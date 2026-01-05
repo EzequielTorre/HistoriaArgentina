@@ -37,10 +37,15 @@ export default async function PostPage({ params }: Props) {
     const post = getPostBySlug(slug);
 
     return (
-      <article className="fade-in-up">
-        <h1 className="text-2xl font-bold">{post.meta.title}</h1>
-        <p className="text-sm text-gray-500">{post.meta.date}</p>
-        <div className="prose mt-6">
+      <article className="fade-in-up container py-4">
+        <div className="text-center mb-5">
+          <h1 className="display-4 fw-bold mb-3 text-primary">{post.meta.title}</h1>
+          <p className="text-muted fst-italic">
+            <i className="bi bi-calendar3 me-2"></i>
+            {post.meta.date}
+          </p>
+        </div>
+        <div className="prose mx-auto">
           <MDXRemote source={post.content} />
         </div>
       </article>
