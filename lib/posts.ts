@@ -10,6 +10,7 @@ export type PostMeta = {
   date: string;
   tags?: string[];
   summary?: string;
+  readingTime?: number;
 };
 
 export function getAllPosts(): PostMeta[] {
@@ -47,11 +48,50 @@ export function getPostBySlug(slug: string) {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
+  // Calculate reading time: avg 200 words per minute
+  const words = content.split(/\s+/).length;
+  const readingTime = Math.ceil(words / 200);
+
   return {
     slug,
-    meta: data,
+    meta: {
+      slug,
+      title: data.title || slug,
+      date: data.date || '',
+      tags: data.tags || [],
+      summary: data.summary || '',
+      readingTime
+    } as PostMeta,
     content,
   };
+}
+
+export function getRelatedPosts(currentSlug: string, tags: string[] = []): PostMeta[] {
+  const allPosts = getAllPosts();
+
+  if (tags.length === 0) return [];
+
+  const related = allPosts.filter((post) => {
+    // Don't include the current post
+    if (post.slug === currentSlug) return false;
+
+    // Find intersection of tags
+    const commonTags = (post.tags || []).filter((t) => tags.includes(t));
+    return commonTags.length > 0;
+  });
+
+  // Sort by number of common tags (relevance) then date
+  return related
+    .sort((a, b) => {
+      const aCommon = (a.tags || []).filter((t) => tags.includes(t)).length;
+      const bCommon = (b.tags || []).filter((t) => tags.includes(t)).length;
+
+      if (aCommon > bCommon) return -1;
+      if (aCommon < bCommon) return 1;
+
+      return a.date < b.date ? 1 : -1;
+    })
+    .slice(0, 3); // Return top 3
 }
 
 export function getAllTags(): string[] {

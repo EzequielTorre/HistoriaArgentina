@@ -45,6 +45,14 @@ export default function Header() {
             </Nav.Link>
             <Nav.Link
               as={Link}
+              href="/timeline"
+              className="d-flex align-items-center gap-2 px-3 nav-link-custom"
+              onClick={() => setExpanded(false)}
+            >
+              <i className="bi bi-clock-history"></i> Línea de Tiempo
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
               href="/about"
               className="d-flex align-items-center gap-2 px-3 nav-link-custom"
               onClick={() => setExpanded(false)}

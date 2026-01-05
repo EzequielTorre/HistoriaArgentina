@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function AboutPage() {
   return (
     <section className="container mb-5">
@@ -5,16 +7,20 @@ export default function AboutPage() {
 
       <div className="row align-items-center mb-5">
         <div className="col-md-6 mb-4 mb-md-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop"
             alt="Libros de historia"
+            width={1200}
+            height={800}
             className="img-fluid rounded-4 shadow"
+            priority
           />
         </div>
         <div className="col-md-6">
           <p className="lead text-secondary">
-            Este blog explora los hechos, procesos y protagonistas de la historia argentina, desde la
-            independencia hasta la actualidad. Buscamos difundir conocimiento con rigor y claridad.
+            Este blog explora los hechos, procesos y protagonistas de la historia argentina, desde
+            la independencia hasta la actualidad. Buscamos difundir conocimiento con rigor y
+            claridad.
           </p>
         </div>
       </div>
@@ -28,7 +34,8 @@ export default function AboutPage() {
               </div>
               <h3 className="h5 fw-bold mb-3">Misión</h3>
               <p className="text-muted">
-                Promover el interés por nuestra historia y facilitar el acceso a contenidos confiables.
+                Promover el interés por nuestra historia y facilitar el acceso a contenidos
+                confiables.
               </p>
             </div>
           </div>
