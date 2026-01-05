@@ -3,22 +3,31 @@ import { PostMeta } from '../lib/posts';
 
 export default function PostList({ posts }: { posts: PostMeta[] }) {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+    <div className="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
       {posts.map((p) => (
-        <li key={p.slug} className="card p-5 border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-          <Link
-            href={`/posts/${p.slug}`}
-            className="inline-flex items-center gap-2 text-lg font-semibold text-indigo-600 dark:text-indigo-400 no-underline"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M5 4h14v2H5zm0 4h14v2H5zm0 4h10v2H5z"/></svg>
-            {p.title}
-          </Link>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-            {p.date} • {p.tags?.join(', ')}
-          </p>
-          <p className="mt-3 text-gray-700 dark:text-gray-300 text-sm">{p.summary}</p>
-        </li>
+        <div key={p.slug} className="col">
+          <div className="card h-100 shadow-sm border-0 bg-white">
+            <div className="card-body">
+              <Link
+                href={`/posts/${p.slug}`}
+                className="d-inline-flex align-items-center gap-2 h5 card-title text-decoration-none text-primary fw-bold"
+              >
+                <i className="bi bi-file-text"></i>
+                {p.title}
+              </Link>
+              <h6 className="card-subtitle mb-2 text-muted small mt-2">
+                {p.date} • {p.tags?.join(', ')}
+              </h6>
+              <p className="card-text text-secondary small mt-3">{p.summary}</p>
+            </div>
+            <div className="card-footer bg-transparent border-0">
+              <Link href={`/posts/${p.slug}`} className="btn btn-outline-primary btn-sm rounded-pill">
+                Leer más
+              </Link>
+            </div>
+          </div>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }

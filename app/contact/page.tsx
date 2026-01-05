@@ -1,5 +1,4 @@
-'use client';
-
+"use client";
 import { useState } from 'react';
 
 export default function ContactPage() {
@@ -31,39 +30,62 @@ export default function ContactPage() {
   }
 
   return (
-    <section className="container">
-      <h1 className="text-3xl font-bold text-center mb-4">Contacto</h1>
-      <p className="text-center text-gray-600 dark:text-gray-400 mb-6">Envíanos tu consulta.</p>
-      <form onSubmit={onSubmit} className="max-w-md mx-auto space-y-4">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Tu nombre"
-          className="w-full border rounded px-4 py-2"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Tu email"
-          className="w-full border rounded px-4 py-2"
-          required
-        />
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Mensaje"
-          className="w-full border rounded px-4 py-2"
-          rows={5}
-          required
-        />
-        <button type="submit" className="w-full rounded bg-sky-600 text-white py-2 hover:bg-sky-500">
-          Enviar
-        </button>
-        {status && <p className="text-center text-green-600">{status}</p>}
-      </form>
+    <section className="container mb-5">
+      <div className="row justify-content-center">
+        <div className="col-md-8 col-lg-6">
+          <div className="card border-0 shadow-sm">
+            <div className="card-body p-4 p-md-5">
+              <h1 className="display-6 fw-bold text-center mb-3">Contacto</h1>
+              <p className="text-center text-muted mb-4">Envíanos tu consulta.</p>
+              
+              <form onSubmit={onSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="name" className="form-label">Tu nombre</label>
+                  <input
+                    id="name"
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Tu nombre"
+                    className="form-control"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">Tu email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Tu email"
+                    className="form-control"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="message" className="form-label">Mensaje</label>
+                  <textarea
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Escribe tu mensaje aquí..."
+                    className="form-control"
+                    rows={5}
+                    required
+                  />
+                </div>
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary">
+                    Enviar mensaje
+                  </button>
+                </div>
+                {status && <div className="alert alert-success mt-3 text-center">{status}</div>}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

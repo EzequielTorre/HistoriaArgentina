@@ -1,106 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ========== VARIABLES Y CONFIGURACIÓN GLOBAL ========== */
 :root {
-  --max-w: 72rem;
-  --sky-500: #0ea5e9;
-  --sky-700: #0369a1;
-  --gold: #d4af37;
+  --celeste-bandera: #6cb4ee;
+  --oro-sol: #ffd700;
+  --azul-profundo: #002147;
 }
 
+/* ========== RESET Y ESTILOS BASE ========== */
 html,
 body,
 #__next {
   height: 100%;
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', ui-sans-serif, system-ui;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
-  color: #0f172a;
+  background-color: #f8f9fa; /* Bootstrap light gray */
+  color: #212529;
 }
 
-.container {
-  max-width: var(--max-w);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Cards */
-.card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.12);
-}
-
-.dark body {
-  background: linear-gradient(180deg, #0b1020 0%, #0f172a 100%);
-  color: #e5e7eb;
+/* ========== TIPOGRAFÍA Y CONTENIDO ========== */
+.prose {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .prose h1,
 .prose h2,
 .prose h3 {
-  letter-spacing: -0.01em;
-  text-align: center;
   font-family: 'Merriweather', Georgia, serif;
+  margin: 2rem 0;
+  color: var(--azul-profundo);
 }
+
+.prose h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  border-bottom: 2px solid var(--oro-sol);
+  padding-bottom: 1rem;
+}
+
 .prose p {
-  line-height: 1.8;
+  margin: 1.5rem 0;
+  text-align: justify;
 }
-.prose a {
-  color: #2563eb;
-  text-decoration: none;
-}
-.dark .prose a {
-  color: #93c5fd;
-}
-.accent-gold { color: var(--gold); }
-.bg-accent-gold { background-color: var(--gold); }
-.border-accent-gold { border-color: var(--gold); }
 
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(8px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* ========== CUSTOM BOOTSTRAP OVERRIDES ========== */
+/* Ensure icons align well */
+.bi {
+  vertical-align: -0.125em;
 }
-.fade-in-up { animation: fadeInUp 400ms ease-out both; }
 
-.timeline {
-  position: relative;
-  padding-left: 1.5rem;
+/* Dark mode overrides if needed, but we use data-bs-theme */
+[data-bs-theme='dark'] body {
+  background-color: #212529;
+  color: #f8f9fa;
 }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--gold), rgba(212,175,55,0.2));
-}
-.timeline-item {
-  position: relative;
-  padding: 0.5rem 0 0.5rem 0.5rem;
-}
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -1rem;
-  top: 0.75rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 9999px;
-  background: var(--gold);
-  box-shadow: 0 0 0 3px rgba(212,175,55,0.25);
+
+[data-bs-theme='dark'] .prose h1,
+[data-bs-theme='dark'] .prose h2,
+[data-bs-theme='dark'] .prose h3 {
+  color: #f8f9fa;
 }
