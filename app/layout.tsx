@@ -28,13 +28,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es">
-      <body>
-        <main className="container py-4">
+      <body className="d-flex flex-column min-vh-100">
+        <div className="container d-flex flex-column flex-grow-1 py-4">
           <Header />
-          {children}
+          <main className="flex-grow-1">{children}</main>
           <ScrollTop />
           <Footer />
-        </main>
+        </div>
       </body>
     </html>
   );
