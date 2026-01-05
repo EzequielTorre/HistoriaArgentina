@@ -28,8 +28,8 @@ export default async function Home() {
             </svg>
             <div className="position-relative z-1 px-4 py-5 text-center">
               <h1 className="display-4 fw-bold mb-3">Historia Argentina</h1>
-              <p className="lead mx-auto" style={{ maxWidth: '600px', color: '#e0f2fe' }}>
-                &ldquo;Serás lo que debas ser, o no serás nada.&rdquo; — San Martín
+              <p className="lead mx-auto fst-italic" style={{ maxWidth: '700px', color: '#e0f2fe' }}>
+                &ldquo;El viejo mundo se muere. El nuevo tarda en aparecer. Y en ese claroscuro surgen los monstruos.&rdquo; — Antonio Gramsci
               </p>
             </div>
           </div>

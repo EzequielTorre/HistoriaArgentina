@@ -13,14 +13,13 @@ export default function Header() {
       expanded={expanded}
       onToggle={() => setExpanded(!expanded)}
       expand="lg"
-      className="mb-4 bg-white border-bottom sticky-top shadow-sm"
-      style={{ backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
+      className="mb-4 border-bottom sticky-top shadow-sm navbar-glass"
     >
       <Container>
         <Navbar.Brand
           as={Link}
           href="/"
-          className="d-flex align-items-center gap-2 fw-bold text-dark text-decoration-none"
+          className="d-flex align-items-center gap-2 fw-bold text-decoration-none brand-text"
         >
           <i className="bi bi-book-half text-primary fs-4"></i>
           <span>Historia Argentina</span>
@@ -39,7 +38,7 @@ export default function Header() {
             <Nav.Link
               as={Link}
               href="/"
-              className="d-flex align-items-center gap-2 px-3 text-dark"
+              className="d-flex align-items-center gap-2 px-3 nav-link-custom"
               onClick={() => setExpanded(false)}
             >
               <i className="bi bi-house-door"></i> Home
@@ -47,7 +46,7 @@ export default function Header() {
             <Nav.Link
               as={Link}
               href="/about"
-              className="d-flex align-items-center gap-2 px-3 text-dark"
+              className="d-flex align-items-center gap-2 px-3 nav-link-custom"
               onClick={() => setExpanded(false)}
             >
               <i className="bi bi-people"></i> Sobre nosotros
@@ -55,7 +54,7 @@ export default function Header() {
             <Nav.Link
               as={Link}
               href="/contact"
-              className="d-flex align-items-center gap-2 px-3 text-dark"
+              className="d-flex align-items-center gap-2 px-3 nav-link-custom"
               onClick={() => setExpanded(false)}
             >
               <i className="bi bi-envelope"></i> Contacto
