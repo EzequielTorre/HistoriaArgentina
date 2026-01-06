@@ -14,7 +14,7 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://instagram.com/ezequieltorres"
+            href="https://www.instagram.com/ezequielmauriciotorres/"
             target="_blank"
             rel="noopener noreferrer"
             className="d-inline-flex align-items-center gap-2 text-decoration-none nav-link-custom"
