@@ -12,7 +12,7 @@ const authors = [
     name: 'Creador del Proyecto',
     role: 'Editor Principal & Desarrollador',
     bio: 'Apasionado por la historia argentina y el desarrollo web. Este proyecto nace con la intención de digitalizar y hacer accesible nuestra rica historia para las nuevas generaciones.',
-    avatar: 'https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff&size=200',
+    avatar: '/avatars/creador.jpg',
     social: {
       twitter: '#',
       github: '#',
