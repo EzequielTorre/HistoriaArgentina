@@ -6,3 +6,4 @@ summary: "Período de organización institucional y conflictos entre federales y
 ---
 
 Durante el siglo XIX Argentina vivió procesos de organización institucional, la sanción de la Constitución de 1853 y conflictos internos que marcaron su rumbo político y social.
+

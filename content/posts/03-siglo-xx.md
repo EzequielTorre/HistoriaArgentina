@@ -6,3 +6,4 @@ summary: "Periodo marcado por transformaciones económicas y políticas, incluye
 ---
 
 El siglo XX en Argentina abarcó importantes transformaciones políticas, sociales y económicas, incluyendo la ascensión del peronismo y cambios en la estructura productiva.
+
