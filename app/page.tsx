@@ -1,6 +1,7 @@
 import { getAllPosts, getAllTags } from '../lib/posts';
 import PostList from '../components/PostList';
 import Search from '../components/Search';
+import Newsletter from '../components/Newsletter';
 import Link from 'next/link';
 
 export default async function Home() {
@@ -28,8 +29,12 @@ export default async function Home() {
             </svg>
             <div className="position-relative z-1 px-4 py-5 text-center">
               <h1 className="display-4 fw-bold mb-3">Historia Argentina</h1>
-              <p className="lead mx-auto fst-italic" style={{ maxWidth: '700px', color: '#e0f2fe' }}>
-                &ldquo;El viejo mundo se muere. El nuevo tarda en aparecer. Y en ese claroscuro surgen los monstruos.&rdquo; — Antonio Gramsci
+              <p
+                className="lead mx-auto fst-italic"
+                style={{ maxWidth: '700px', color: '#e0f2fe' }}
+              >
+                &ldquo;El viejo mundo se muere. El nuevo tarda en aparecer. Y en ese claroscuro
+                surgen los monstruos.&rdquo; — Antonio Gramsci
               </p>
             </div>
           </div>
@@ -66,6 +71,10 @@ export default async function Home() {
           ))}
         </div>
       </section>
+
+      <div className="container">
+        <Newsletter />
+      </div>
     </div>
   );
 }

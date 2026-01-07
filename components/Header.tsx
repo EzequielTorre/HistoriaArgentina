@@ -57,7 +57,15 @@ export default function Header() {
               className="d-flex align-items-center gap-2 px-3 nav-link-custom"
               onClick={() => setExpanded(false)}
             >
-              <i className="bi bi-people"></i> Sobre nosotros
+              <i className="bi bi-info-circle"></i> Sobre nosotros
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              href="/authors"
+              className="d-flex align-items-center gap-2 px-3 nav-link-custom"
+              onClick={() => setExpanded(false)}
+            >
+              <i className="bi bi-people"></i> Autores
             </Nav.Link>
             <Nav.Link
               as={Link}
