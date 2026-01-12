@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollTop from '../components/ScrollTop';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   metadataBase: new URL('https://historia-argentina.vercel.app'),
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ScrollTop />
           <Footer />
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );
